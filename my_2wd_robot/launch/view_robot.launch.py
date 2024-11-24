@@ -29,7 +29,7 @@ def generate_launch_description():
         
         DeclareLaunchArgument(
             name='publish_joints', 
-            default_value='true',
+            default_value='false',
             description='Launch joint_states_publisher'
         ),
 
@@ -41,8 +41,14 @@ def generate_launch_description():
 
         DeclareLaunchArgument(
             name='use_sim_time', 
-            default_value='false',
+            default_value='true',
             description='Use simulation time'
+        ),
+
+        DeclareLaunchArgument(
+            name='publish_frequency', 
+            default_value='50.0',
+            description='Publish Frequency'
         ),
 
         Node(
@@ -63,7 +69,8 @@ def generate_launch_description():
             parameters=[
                 {
                     'use_sim_time': LaunchConfiguration('use_sim_time'),
-                    'robot_description': Command(['xacro ', LaunchConfiguration('urdf')])
+                    'robot_description': Command(['xacro ', LaunchConfiguration('urdf')]),
+                    'publish_frequency': LaunchConfiguration('publish_frequency')
                 }
             ]
         ),

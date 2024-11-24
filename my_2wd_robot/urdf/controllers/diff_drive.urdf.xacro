@@ -5,7 +5,7 @@
         <ros>
           <remapping>odom:=odom/unfiltered</remapping>
         </ros>
-        <updateRate>100</updateRate>
+        <updateRate>50</updateRate>
         <left_joint>left_wheel_joint</left_joint>
         <right_joint>right_wheel_joint</right_joint>
         <wheel_separation>${wheel_separation}</wheel_separation>
