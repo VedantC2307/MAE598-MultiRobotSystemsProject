@@ -12,7 +12,7 @@ def generate_launch_description():
     # Define the robot spawn parameters for two robots
     robots = [
         {'namespace': 'robot1', 'x': '0.0', 'y': '0.0', 'z': '0.0'},
-        # {'namespace': 'robot2', 'x': '2.0', 'y': '0.0', 'z': '0.0'},
+        {'namespace': 'robot2', 'x': '2.0', 'y': '0.0', 'z': '0.0'},
     ]
 
     # Start Gazebo

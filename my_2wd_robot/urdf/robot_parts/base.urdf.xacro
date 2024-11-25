@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="base" params="length width height mass wheel_radius wheel_pos_z">
-    <link name="base_footprint"/>
+    
     
     <link name="base_link">
       <visual>
@@ -42,9 +42,13 @@
       </visual> 
     </gazebo>
 
+    <link name="base_footprint">
+    </link>
+
+
     <joint name="base_to_footprint" type="fixed">
-      <parent link="base_footprint"/>
-      <child link="base_link"/>
+      <parent link="base_link"/>
+      <child link="base_footprint"/>
       <origin xyz="0 0 ${wheel_radius - wheel_pos_z}" rpy="0 0 0"/>
     </joint>
   </xacro:macro>
