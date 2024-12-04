@@ -12,6 +12,10 @@ from launch_ros.descriptions import ComposableNode
 def generate_launch_description():
     use_sim_time = True
 
+    world_file = PathJoinSubstitution(
+        [FindPackageShare('my_2wd_robot'), 'world', 'testing.world']  # Replace with your world file
+    )
+
     description_launch_path = PathJoinSubstitution(
         [FindPackageShare('my_2wd_robot'), 'launch', 'view_robot.launch.py']
     )
@@ -43,7 +47,7 @@ def generate_launch_description():
         ),
 
         ExecuteProcess(
-            cmd=['gazebo', '--verbose', '-s', 'libgazebo_ros_factory.so',  '-s', 'libgazebo_ros_init.so'],
+            cmd=['gazebo', '--verbose', '-s', 'libgazebo_ros_factory.so',  '-s', 'libgazebo_ros_init.so', '-world', world_file],
             output='screen'
         ),
 

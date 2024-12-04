@@ -11,7 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(urdf REQUIRED)
 
 install(
-  DIRECTORY urdf launch scripts rviz
+  DIRECTORY urdf launch scripts rviz world
   DESTINATION share/${PROJECT_NAME}
 )
 
