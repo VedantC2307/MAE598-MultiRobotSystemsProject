@@ -20,12 +20,12 @@ class BallisticMover(Node):
         # Rotation flags
         self.obstacle_detected = False
         self.is_rotating = False
-        self.rotation_time_remaining = 0.0
+        self.rotation_time_remaining = 1.0
 
         # Safe directions
         self.safe_front_distances = []  # Front laser data
         self.front_obstacle_threshold = 1.0  # Threshold for obstacles in front
-        self.safe_distance_threshold = 2.0  # Safe distance to consider a direction viable
+        self.safe_distance_threshold = 1.0  # Safe distance to consider a direction viable
 
         # Timer for publishing velocity
         self.timer = self.create_timer(0.1, self.move)
@@ -33,8 +33,8 @@ class BallisticMover(Node):
     def lidar_callback(self, msg):
         # Focus on front-facing laser data (e.g., 30 degrees on either side of forward direction)
         total_ranges = len(msg.ranges)
-        front_start_index = int(total_ranges * 0.45)  # Approximate start of front arc
-        front_end_index = int(total_ranges * 0.55)  # Approximate end of front arc
+        front_start_index = int(total_ranges * 0)  # Approximate start of front arc
+        front_end_index = int(total_ranges * 0.1)  # Approximate end of front arc
         front_ranges = msg.ranges[front_start_index:front_end_index]
 
         # Filter out invalid ranges (LiDAR might return `inf` or `nan`)
@@ -82,7 +82,7 @@ def main(args=None):
     rclpy.init(args=args)
 
     # Create a BallisticMover for the robot
-    robot = BallisticMover('robot2')
+    robot = BallisticMover('robot1')
 
     try:
         rclpy.spin(robot)
