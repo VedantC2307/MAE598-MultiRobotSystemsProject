@@ -36,10 +36,15 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/${ROS_DISTRO}/share/turtleb
 ros2 launch multirobot_map_merge multi_tb3_simulation_launch.py slam_gmapping:=True
 ```
 ### Step 2: Start Random Walk Exploration
-In a second terminal, source the workspace and start the random walk exploration node:
+In a second terminal, source the workspace and start the random walk exploration node for robot 1:
 ```bash
 source <ros2_ws>/install/setup.bash
-ros2 run multi_robot_explore multi_robot_random_walk
+ros2 run multi_robot_explore multi_robot_random_walk_robot1
+```
+Open third terminal, source the workspace and start the random walk exploration node for robot 2:
+```bash
+source <ros2_ws>/install/setup.bash
+ros2 run multi_robot_explore multi_robot_random_walk_robot2
 ```
 
 ### Step 3: Launch the Map Merge Node
