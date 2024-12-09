@@ -33,6 +33,7 @@ Open a terminal and run the following commands to launch the multi-robot simulat
 ```bash
 export TURTLEBOT3_MODEL=waffle
 export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/opt/ros/${ROS_DISTRO}/share/turtlebot3_gazebo/models
+source <ros2_ws>/install/setup.bash
 ros2 launch multirobot_map_merge multi_tb3_simulation_launch.py slam_gmapping:=True
 ```
 ### Step 2: Start Random Walk Exploration
