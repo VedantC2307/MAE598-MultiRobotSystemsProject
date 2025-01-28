@@ -13,7 +13,7 @@
 
 2. Clone the repository:
     ```bash
-    git clone https://github.com/VedantC2307/MultiRobotProject-Private
+    git clone https://github.com/VedantC2307/MAE598-MultiRobotSystemsProject.git
     ```
 
 3. Build the workspace:
